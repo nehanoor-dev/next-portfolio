@@ -29,6 +29,7 @@ const Hero = () => {
   return (
     <section className="flex flex-col-reverse lg:flex-row justify-center items-center w-full 
     min-h-screen bg-gray-100 px-4 py-8 lg:py-16 bg-clip bg-gradient-to-l from-purple-200 to-pink-200">
+      <div className=" w-4/5 flex flex-col-reverse lg:flex-row justify-center items-center">
       {/* Left Section */}
       <div className="flex flex-col items-center lg:items-start text-center lg:text-left lg:w-2/3 w-full space-y-4">
         <h1 className="text-2xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-600">
@@ -82,6 +83,8 @@ const Hero = () => {
           />
         </div>
       )}
+      </div>
+
     </section>
   );
 };

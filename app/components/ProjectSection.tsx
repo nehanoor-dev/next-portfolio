@@ -6,6 +6,14 @@ import { MdPreview } from "react-icons/md";
 function ProjectSection() {
     const projects = [
         {
+            id: 'fitness-app',
+            title: 'Fitness App using Html, Css & Vanilla Javascript',
+            desc: "Design and develop sleek, responsive Single Page Applications (SPAs) for seamless user experiences and fast performance.",
+            img: '/images/portfolio/tour-site.png',
+            link: 'https://nehanoor-dev.github.io/fitness-app/',
+        },
+
+        {
             id: 'tour-site',
             title: 'Tour Management using Angular and Typescript',
             desc: "Design and develop sleek, responsive Single Page Applications (SPAs) for seamless user experiences and fast performance.",
@@ -65,12 +73,12 @@ function ProjectSection() {
   return (
     <section className='h-full' id='portfolio'>
         <h1 className='heading'>Projects</h1>
-        <div className='container grid grid-cols-1 w-2/3 mx-auto '>
+        <div className='container grid grid-cols-2 w-3/5 mx-auto '>
         {projects.map((project) => (
             <div
              key={project.id}
-             className='container grid bg-blue-50 lg:grid-cols-2 grid-cols-1 lg:w-4/5 w-3/4 md:mx-auto border-4 border-pink-500
-             mt-7 rounded-xl hover:scale-125 hover:-translate-y-4 hover:border-yellow-300 transition-transform 
+             className='container grid bg-blue-50  grid-cols-1 w-11/12 md:mx-auto border-4 border-pink-500
+             mt-7 rounded-xl hover:scale-105 hover:-translate-y-4 hover:border-yellow-300 transition-transform 
             transform'>
                 <img src={project.img}
                 alt={project.title}
