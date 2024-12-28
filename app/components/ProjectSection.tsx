@@ -9,7 +9,7 @@ function ProjectSection() {
             id: 'fitness-app',
             title: 'Fitness App using Html, Css & Vanilla Javascript',
             desc: "Design and develop sleek, responsive Single Page Applications (SPAs) for seamless user experiences and fast performance.",
-            img: '/images/portfolio/tour-site.png',
+            img: '/images/portfolio/fitness-app.png',
             link: 'https://nehanoor-dev.github.io/fitness-app/',
         },
 
