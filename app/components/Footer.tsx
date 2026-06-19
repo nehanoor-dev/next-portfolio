@@ -1,28 +1,36 @@
-import React from 'react'
-import { FaInstagram } from "react-icons/fa6";
-import { FaFacebook } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
-
+import React from "react";
 
 function Footer() {
   return (
-    <section className='h-56 bg-clip  bg-gradient-to-r from-pink-400 to-purple-600'>
-     <div className='flex flex-row items-center justify-center align-middle mt-10'>
-        <FaInstagram className='text-4xl text-yellow-300 mt-20 mx-1 cursor-pointer
-        hover:text-purple-400
-        ' />
-        <FaFacebook className='text-4xl text-yellow-300 mt-20 mx-1 cursor-pointer
-        hover:text-purple-400
-        ' />
-        <a href='https://www.linkedin.com/in/nehanoor-developer/' target='_blank'>
-        <FaLinkedin className='text-4xl text-yellow-300 mt-20 mx-1 hover:text-purple-400' />
-        </a>
-     </div>
-     <p className='flex justify-center mt-5 mb-3 text-gray-100 border-b border-gray-300
-     '>© Developer Neha Noor </p>
+    <footer className="relative overflow-hidden py-14 px-6 bg-gradient-to-r from-pink-500 to-purple-600">
+      {/* soft glow background layer */}
+      <div className="absolute inset-0 bg-black/10 backdrop-blur-xl"></div>
 
-    </section>
-  )
+      <div className="relative max-w-4xl mx-auto text-center">
+        {/* BRAND TEXT */}
+        <h2 className="text-2xl md:text-3xl font-bold text-white">
+          Designed & Built by <span className="text-yellow-300">Neha Noor</span>
+        </h2>
+
+        {/* SUB TEXT */}
+        <p className="mt-3 text-sm md:text-base text-white/80">
+          Crafting modern, responsive and interactive web experiences with
+          React, Next.js & Tailwind CSS.
+        </p>
+
+        {/* DIVIDER */}
+        <div className="my-6 flex justify-center">
+          <div className="h-[1px] w-24 bg-white/40"></div>
+        </div>
+
+        {/* COPYRIGHT */}
+        <p className="text-xs md:text-sm text-white/70">
+          © {new Date().getFullYear()} All Rights Reserved • Built with passion
+          and clean code
+        </p>
+      </div>
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

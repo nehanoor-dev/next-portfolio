@@ -1,129 +1,113 @@
 'use client'
 import Link from 'next/link'
-import React, {useState} from 'react'
+import React, { useState } from 'react'
+import { Home, User, Briefcase, FolderOpen, Mail, X } from 'lucide-react'
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
 
-  return ( 
+  const links = [
+    { name: "Home", href: "#", icon: Home },
+    { name: "About", href: "#about", icon: User },
+    { name: "Services", href: "#service", icon: Briefcase },
+    { name: "Portfolio", href: "#portfolio", icon: FolderOpen },
+    { name: "Contact", href: "#contact", icon: Mail },
+  ]
 
-   <section>
-    <nav className="border-b-4 border-pink-500">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
-        <div className="flex justify-between h-20 items-center">
-        <div className="flex-shrink-0">
-            <Link href={'#'} className="font-extrabold text-3xl py-2 px-2 text-gray-800 scroll-smooth">
+  return (
+    <nav className="relative">
+
+      {/* TOP BAR */}
+      <div className="bg-gradient-to-r from-pink-700 via-fuchsia-600 to-purple-700 shadow-lg">
+
+        <div className="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+
+          {/* Animated Logo */}
+          <Link
+            href="#"
+            className="
+              text-3xl font-extrabold tracking-wider
+              bg-gradient-to-r from-white via-pink-200 to-yellow-200
+              text-transparent bg-clip-text
+              animate-pulse
+              drop-shadow-lg
+              hover:scale-105 transition-transform duration-300
+            "
+          >
             Neha N.
-            </Link>
-          </div>
+          </Link>
 
-          {/* Desktop Menu */}
-          <div className="md:flex sm:hidden">
-            <Link
-              href="#"
-              className="link"
-            >
-              Home
-            </Link>
-            <Link
-              href="#about"
-              className="link"
-            >
-              About
-            </Link>
-            <Link
-              href="#service"
-              className="link"
-            >
-              Services
-            </Link>
-            <Link
-              href="#hire"
-              className="link"
-            >
-              Hire As Freelancer
-            </Link>
-            <Link
-              href="#portfolio"
-              className="link"
-            >
-              Portfolio
-            </Link>
-            <Link
-              href={'#contact'}
-              className="link"
-            >
-              Contact
-            </Link>
-          </div>
+          {/* Hamburger */}
+          <button
+            onClick={() => setIsOpen(true)}
+            className="
+              text-white text-3xl
+              hover:scale-110 transition-transform duration-200
+            "
+          >
+            ☰
+          </button>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-400 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-white"
-            >
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                {isOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16m-7 6h7"
-                  />
-                )}
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Overlay */}
       {isOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-            <a
-              href="#"
-              className="block px-3 py-2 rounded-md text-base hover:text-white font-medium hover:bg-gray-500"
-            >
-              Home
-            </a>
-            <a
-              href="#"
-              className="block px-3 py-2 rounded-md text-base hover:text-white font-medium hover:bg-gray-500"
-            >
-              About
-            </a>
-            <a
-              href="#"
-              className="block px-3 py-2 rounded-md text-base hover:text-white font-medium hover:bg-gray-500"
-            >
-              Services
-            </a>
-            <a
-              href="#"
-              className="block px-3 py-2 rounded-md text-base hover:text-white font-medium hover:bg-gray-500"
-            >
-              Contact
-            </a>
-          </div>
-        </div>
+        <div
+          className="fixed inset-0 bg-black/60 z-40 backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        />
       )}
+
+      {/* FULL SCREEN SIDEBAR */}
+      <div
+        className={`
+          fixed top-0 right-0 h-full w-full z-50
+          transform transition-transform duration-500 ease-in-out
+          ${isOpen ? 'translate-x-0' : 'translate-x-full'}
+          bg-gradient-to-br from-purple-800 via-pink-600 to-red-500
+        `}
+      >
+
+        {/* Close Button */}
+        <button
+          onClick={() => setIsOpen(false)}
+          className="
+            absolute top-6 right-6 text-white text-4xl
+            hover:rotate-90 transition-transform duration-300
+          "
+        >
+          <X size={32} />
+        </button>
+
+        {/* Menu */}
+        <div className="flex flex-col items-center justify-center h-full space-y-10">
+
+          {links.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <Link
+                key={index}
+                href={item.href}
+                onClick={() => setIsOpen(false)}
+                className="
+                  flex items-center gap-4 text-white
+                  text-3xl font-extrabold
+                  hover:scale-125 hover:text-yellow-200
+                  transition-all duration-300
+                  animate-fade-in
+                "
+              >
+                <Icon size={34} />
+                <span className="tracking-wide">{item.name}</span>
+              </Link>
+            )
+          })}
+
+        </div>
+
+      </div>
     </nav>
-   </section>
   )
 }
 
