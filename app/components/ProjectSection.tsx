@@ -11,7 +11,7 @@ function ProjectSection() {
       id: 'fitness-app',
       title: 'Fitness App',
       desc: 'HTML, CSS & Vanilla JS fitness tracker with clean UI and responsive design.',
-      tech: [<SiBootstrap />, <FaReact />],
+      tech: [SiBootstrap, FaReact],
       video: '/videos/fitness.mp4',
       github: 'https://github.com/nehanoor-dev/fitness-app',
       live: 'https://nehanoor-dev.github.io/fitness-app/',
@@ -20,7 +20,7 @@ function ProjectSection() {
       id: 'tour-site',
       title: 'Tour Management System',
       desc: 'Angular + TypeScript powered booking system with dynamic UI.',
-      tech: [<FaAngular />],
+      tech: [FaAngular],
       video: '/videos/tour-site.mp4',
       github: '',
       live: 'https://tour-site-plum.vercel.app/',
@@ -29,7 +29,7 @@ function ProjectSection() {
       id: 'next-portfolio',
       title: 'Next.js Portfolio',
       desc: 'Modern portfolio with animations, SEO and responsive design.',
-      tech: [<SiTailwindcss />, <FaReact />],
+      tech: [SiTailwindcss, FaReact],
       video: '/videos/portfolio.mp4',
       github: 'https://github.com/nehanoor-dev',
       live: 'https://neha-noor.vercel.app/',
@@ -38,66 +38,39 @@ function ProjectSection() {
       id: 'innohub',
       title: 'Innohub Landing Page',
       desc: 'Vue + Vuetify landing page for SaaS solution branding.',
-      tech: [<FaVuejs />],
+      tech: [FaVuejs],
       video: '/videos/innohub.mp4',
       github: '',
       live: 'https://innohub-solution.netlify.app/',
     },
-    // {
-    //   id: 'restaurant-app',
-    //   title: 'Restaurant App',
-    //   desc: 'React + Bootstrap frontend for restaurant ordering UI.',
-    //   tech: [<FaReact />, <SiBootstrap />],
-    //   video: '/videos/restaurant.mp4',
-    //   github: '',
-    //   live: 'https://restaurant-web-js.netlify.app/',
-    // },
-    // {
-    //   id: 'realestate',
-    //   title: 'Real Estate Landing Page',
-    //   desc: 'Responsive real estate landing page built with React.',
-    //   tech: [<FaReact />, <SiBootstrap />],
-    //   video: '/videos/realestate.mp4',
-    //   github: '',
-    //   live: 'https://na-realestate.netlify.app/',
-    // },
     {
       id: 'printox',
-      title: 'Printing webiste (Printox)',
-      desc: 'A client project for ecommerce printing application.',
-      tech: [<FaReact />, <SiBootstrap />],
+      title: 'Printing Website (Printox)',
+      desc: 'A client ecommerce printing application project.',
+      tech: [FaReact, SiBootstrap],
       video: '/videos/printox.mp4',
       github: '',
       live: 'https://www.printox.co.uk/site',
     },
     {
-      id: 'OpenAi chatbot integration',
-      title: 'Vehicle Marketplace',
-      desc: 'A Client application openai chatbot integration for vehicle search',
-      tech: [<FaReact />, <SiBootstrap />],
+      id: 'vehicle-chatbot',
+      title: 'Vehicle Marketplace AI Chatbot',
+      desc: 'OpenAI chatbot integration for vehicle search system.',
+      tech: [FaReact, SiBootstrap],
       video: '/videos/chatbot.mp4',
       github: '',
       live: '',
     },
-    // {
-    //   id: 'restaurant-landing',
-    //   title: 'Restaurant Landing Page',
-    //   desc: 'Modern landing page for restaurant branding.',
-    //   tech: [<FaReact />, <SiBootstrap />],
-    //   video: '/videos/res-landing.mp4',
-    //   github: '',
-    //   live: 'https://zaiqa-restaurant-maanilverma.netlify.app/',
-    // },
   ];
 
   return (
     <section id="portfolio" className="py-20 px-4 md:px-10 bg-white">
-      
+
       <h1 className="text-4xl text-center font-extrabold mb-12 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-600">
         Projects
       </h1>
 
-      {/* GRID: 2 cards on large screens */}
+      {/* 2 cards per row on large screens */}
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2 max-w-6xl mx-auto">
 
         {projects.map((project) => (
@@ -118,7 +91,7 @@ function ProjectSection() {
               />
             </div>
 
-            {/* OVERLAY (INTERACTIVE HOVER) */}
+            {/* OVERLAY */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
             {/* CONTENT */}
@@ -136,8 +109,10 @@ function ProjectSection() {
 
               {/* TECH ICONS */}
               <div className="flex items-center gap-3 text-xl text-pink-500">
-                {project.tech?.map((icon, i) => (
-                  <span key={i}>{icon}</span>
+                {project.tech?.map((Icon, i) => (
+                  <span key={`${project.id}-tech-${i}`}>
+                    <Icon />
+                  </span>
                 ))}
               </div>
 
@@ -165,6 +140,7 @@ function ProjectSection() {
                     <MdPreview />
                   </a>
                 )}
+
               </div>
 
             </div>
